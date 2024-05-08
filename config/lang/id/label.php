@@ -1,5 +1,27 @@
 <?php 
 
 return [
-    'module_name' => 'Penilaian Kinerja'
+    'module_name' => 'Penilaian Kinerja',
+    'assessment_instruments' => 'Instrumen',
+    'assessment_periods' => 'Periode',
+    'assessment_categories' => 'Kategori',
+    'assessment_weights' => 'Pembobotan',
+    'assessment_records' => 'Penilaian',
+    'assessment_evaluations' => 'Evaluasi',
+
+    'name' => 'Nama',
+    'status' => 'Status',
+    'order_number' => 'Nomor Urut',
+    'min' => 'Min',
+    'max' => 'Max',
+    'category' => 'Kategori',
+    'instrument' => 'Instrumen',
+    'description' => 'Deskripsi',
+    'user' => 'User',
+    'evaluator' => 'Yang Mengevaluasi',
+    'notes' => 'Catatan',
+    'file' => 'File',
+
+    'questions' => 'Pertanyaan',
+    'assessment_questions' => 'Pertanyaan',
 ];
