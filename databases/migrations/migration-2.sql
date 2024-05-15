@@ -1,0 +1,1 @@
+ALTER TABLE assessment_responses ADD COLUMN description TEXT DEFAULT NULL;
