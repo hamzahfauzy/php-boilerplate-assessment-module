@@ -87,7 +87,7 @@ return [
             'type' => 'options-obj:assessment_periods,id,name'
         ],
         'user_id' => [
-            'label' => __('assessment.label.user'),
+            'label' => __('assessment.label.employee'),
             'type' => 'options-obj:users,id,name'
         ],
         'assessor_id' => [

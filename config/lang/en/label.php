@@ -24,4 +24,7 @@ return [
 
     'questions' => 'Questions',
     'assessment_questions' => 'Questions',
+    'period' => 'Period',
+    'employee' => 'Employee',
+    'record_type' => 'Record Type',
 ];

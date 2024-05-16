@@ -1,0 +1,3 @@
+<?php
+
+$data['status'] = 'DISKUSI';

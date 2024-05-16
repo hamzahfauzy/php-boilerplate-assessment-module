@@ -24,4 +24,7 @@ return [
 
     'questions' => 'Pertanyaan',
     'assessment_questions' => 'Pertanyaan',
+    'period' => 'Periode',
+    'employee' => 'Karyawan',
+    'record_type' => 'Tipe Record',
 ];
