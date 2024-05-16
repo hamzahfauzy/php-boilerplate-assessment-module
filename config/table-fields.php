@@ -81,4 +81,22 @@ return [
             'type' => 'textarea'
         ],
     ],
+    'assessment_records' => [
+        'period_id' => [
+            'label' => __('assessment.label.period'),
+            'type' => 'options-obj:assessment_periods,id,name'
+        ],
+        'user_id' => [
+            'label' => __('assessment.label.user'),
+            'type' => 'options-obj:users,id,name'
+        ],
+        'assessor_id' => [
+            'label' => __('assessment.label.evaluator'),
+            'type' => 'options-obj:users,id,name'
+        ],
+        'record_type' => [
+            'label' => __('assessment.label.record_type'),
+            'type' => 'options:Pejabat|Atasan Pejabat'
+        ],
+    ],
 ];
