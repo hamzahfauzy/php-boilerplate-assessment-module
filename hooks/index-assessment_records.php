@@ -3,9 +3,9 @@ $role = get_role(auth()->id);
 $having = "";
 
 $filter_query = [];
-if(isset($_GET['page']) && $role->role_id != 1)
+if($role->role_id != 1)
 {
-    $filter_query[] = ($_GET['page'] == 'records' ? 'assessor_id' : 'user_id') . " = ".auth()->id;
+    $filter_query[] = "(assessor_id = ".auth()->id." OR user_id = ".auth()->id.")";
 }
 
 if($filter || count($filter_query))

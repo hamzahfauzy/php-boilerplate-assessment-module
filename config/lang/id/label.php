@@ -28,6 +28,8 @@ return [
     'employee' => 'Karyawan',
     'record_type' => 'Tipe Record',
     'do_assessment' => 'Lakukan Penilaian',
+    'assessment' => 'Penilaian',
     'do_evaluation' => 'Lakukan Evaluasi',
     'evaluations' => 'Evaluasi',
+    'detail' => 'Detail'
 ];

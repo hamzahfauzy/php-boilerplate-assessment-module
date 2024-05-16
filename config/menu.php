@@ -28,17 +28,16 @@ $menu = [
     [
         'label' => 'assessment.menu.assessments',
         'icon'  => 'fa-fw fa-xl me-2 fa-solid fa-compact-disc',
-        'route' => routeTo('crud/index',['table'=>'assessment_records']),
         'activeState' => ['assessment.records','assessment.reports'],
         'items' => [
             [
                 'label' => 'assessment.menu.records',
-                'route' => routeTo('crud/index',['table'=>'assessment_records','page' => 'records']),
+                'route' => routeTo('crud/index',['table'=>'assessment_records']),
                 'activeState' => 'assessment.records',
             ],
             [
                 'label' => 'assessment.menu.reports',
-                'route' => routeTo('crud/index',['table'=>'assessment_records','page' => 'reports']),
+                'route' => routeTo('assessment/reports'),
                 'activeState' => 'assessment.reports',
             ]
         ]

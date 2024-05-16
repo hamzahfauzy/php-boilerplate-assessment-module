@@ -1,0 +1,2 @@
+ALTER TABLE assessment_records ADD COLUMN instrument_id INT DEFAULT NULL;
+ALTER TABLE assessment_records ADD CONSTRAINT fk_assessment_records_instrument_id FOREIGN KEY (instrument_id) REFERENCES assessment_instruments(id) ON DELETE CASCADE;

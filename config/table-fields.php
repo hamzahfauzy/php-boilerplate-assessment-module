@@ -36,27 +36,19 @@ return [
         ],
     ],
     'assessment_instruments' => [
-        'organization_id' => [
-            'label' => __('organization.label.organization'),
-            'type' => 'options-obj:organizations,id,name'
-        ],
-        'position_id' => [
-            'label' => __('organization.label.position'),
-            'type' => 'options-obj:organization_positions,id,name'
-        ],
         'name' => [
             'label' => __('assessment.label.name'),
             'type' => 'text'
         ],
     ],
     'assessment_questions' => [
-        'category_id' => [
-            'label' => __('assessment.label.category'),
-            'type' => 'options-obj:assessment_categories,id,name'
-        ],
         'instrument_id' => [
             'label' => __('assessment.label.instrument'),
             'type' => 'options-obj:assessment_instruments,id,name'
+        ],
+        'category_id' => [
+            'label' => __('assessment.label.category'),
+            'type' => 'options-obj:assessment_categories,id,name'
         ],
         'description' => [
             'label' => __('assessment.label.description'),
@@ -93,6 +85,10 @@ return [
         'assessor_id' => [
             'label' => __('assessment.label.evaluator'),
             'type' => 'options-obj:users,id,name'
+        ],
+        'instrument_id' => [
+            'label' => __('assessment.label.instrument'),
+            'type' => 'options-obj:assessment_instruments,id,name'
         ],
         'record_type' => [
             'label' => __('assessment.label.record_type'),

@@ -19,12 +19,7 @@ CREATE TABLE IF NOT EXISTS assessment_weights (
 
 CREATE TABLE IF NOT EXISTS assessment_instruments (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    organization_id INT NOT NULL,
-    position_id INT NOT NULL,
-    name VARCHAR(100) NOT NULL,
-
-    CONSTRAINT fk_assessment_instruments_organization_id FOREIGN KEY (organization_id) REFERENCES organizations(id) ON DELETE CASCADE,
-    CONSTRAINT fk_assessment_instruments_position_id FOREIGN KEY (position_id) REFERENCES organization_positions(id) ON DELETE CASCADE
+    name VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS assessment_questions (
