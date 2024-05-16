@@ -2,7 +2,7 @@
 
 use Core\Database;
 
-\Modules\Default\Libraries\Sdk\Dashboard::add(dashboardStatistic());
+\Modules\Default\Libraries\Sdk\Dashboard::add('dashboardStatistic');
 
 function dashboardStatistic()
 {
