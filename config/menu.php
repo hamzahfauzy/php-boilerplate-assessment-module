@@ -1,6 +1,6 @@
 <?php 
 
-return [
+$menu = [
     [
         'label' => 'assessment.menu.periods',
         'icon'  => 'fa-fw fa-xl me-2 fa-solid fa-calendar-plus',
@@ -26,10 +26,22 @@ return [
         'activeState' => 'assessment.instruments'
     ],
     [
-        'label' => 'assessment.menu.records',
+        'label' => 'assessment.menu.assessments',
         'icon'  => 'fa-fw fa-xl me-2 fa-solid fa-compact-disc',
         'route' => routeTo('crud/index',['table'=>'assessment_records']),
-        'activeState' => 'assessment.records'
+        'activeState' => ['assessment.records','assessment.reports'],
+        'items' => [
+            [
+                'label' => 'assessment.menu.records',
+                'route' => routeTo('crud/index',['table'=>'assessment_records','page' => 'records']),
+                'activeState' => 'assessment.records',
+            ],
+            [
+                'label' => 'assessment.menu.reports',
+                'route' => routeTo('crud/index',['table'=>'assessment_records','page' => 'reports']),
+                'activeState' => 'assessment.reports',
+            ]
+        ]
     ],
     [
         'label' => 'assessment.menu.evaluation_reports',
@@ -38,3 +50,15 @@ return [
         'route' => routeTo('crud/index',['table'=>'assessment_evaluations']),
     ],
 ];
+
+if(get_role(auth()->id)->id == 1)
+{
+    $menu[4] = [
+        'label' => 'assessment.menu.assessments',
+        'icon'  => 'fa-fw fa-xl me-2 fa-solid fa-compact-disc',
+        'route' => routeTo('crud/index',['table'=>'assessment_records']),
+        'activeState' => ['assessment.records','assessment.reports'],
+    ];
+}
+
+return $menu;

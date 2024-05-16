@@ -65,7 +65,7 @@ return [
     ],
     'assessment_evaluations' => [
         'user_id' => [
-            'label' => __('assessment.label.user'),
+            'label' => __('assessment.label.employee'),
             'type' => 'options-obj:users,id,name'
         ],
         'evaluator_id' => [

@@ -10,4 +10,6 @@ return [
     'report' => 'Laporan',
     'assessment_reports' => 'Laporan DP3',
     'evaluation_reports' => 'Evaluasi Laporan',
+    'assessments' => 'Asesmen',
+    'reports' => 'Laporan',
 ];

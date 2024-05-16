@@ -27,4 +27,7 @@ return [
     'period' => 'Periode',
     'employee' => 'Karyawan',
     'record_type' => 'Tipe Record',
+    'do_assessment' => 'Lakukan Penilaian',
+    'do_evaluation' => 'Lakukan Evaluasi',
+    'evaluations' => 'Evaluasi',
 ];

@@ -41,8 +41,8 @@ CREATE TABLE IF NOT EXISTS assessment_evaluations (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     media_id INT NOT NULL,
-    evaluator_id INT NOT NULL,
-    notes LONGTEXT NOT NULL,
+    evaluator_id INT DEFAULT NULL,
+    notes LONGTEXT DEFAULT NULL,
 
     CONSTRAINT fk_assessment_evaluations_user_id FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
     CONSTRAINT fk_assessment_evaluations_evaluator_id FOREIGN KEY (evaluator_id) REFERENCES users(id) ON DELETE CASCADE,
