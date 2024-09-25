@@ -56,13 +56,14 @@ table td img {
                     <td class="text-center fw-bold">PENILAIAN</td>
                 </tr>
                 <?php 
-                $no=1; 
+                $no=1;
+                $jumlah = 0; 
                 foreach($categories as $category): 
                 ?>
                 <tr>
                     <td colspan="<?=count($weights)+2?>" class="text-center fw-bold"><?= $category->name ?></td>
                 </tr>
-                <?php $jumlah = 0; foreach($category->questions as $question): $jumlah += $data->questions?->questions?->{$question->id}; ?>
+                <?php foreach($category->questions as $question): $jumlah += $data->questions?->questions?->{$question->id}; ?>
                 <tr>
                     <td><?=$no++?></td>
                     <td><?=$question->description?></td>
