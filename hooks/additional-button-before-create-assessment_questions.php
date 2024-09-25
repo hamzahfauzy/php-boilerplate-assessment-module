@@ -10,7 +10,7 @@
         <form action="<?=routeTo('assessment/instruments/import', ['instrument_id' => $_GET['filter']['instrument_id']])?>" method="post" enctype="multipart/form-data">
             <?= csrf_field() ?>
             <div class="form-group mb-3">
-                <label for="" class="mb-2">Sample File</label>
+                <label for="" class="mb-2">Sample File</label><br>
                 <a href="<?=asset('assets/assessment/import-question.xlxs')?>">Download</a>
             </div>
             <div class="form-group mb-3">
