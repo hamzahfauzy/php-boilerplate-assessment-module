@@ -40,7 +40,7 @@ table td img {
             </tr>
             <tr>
                 <td>e. Unit Kerja</td>
-                <td colspan="3"></td>
+                <td colspan="3"><?= $user->organization->name?></td>
             </tr>
             <tr>
                 <td>- Perguruan Tinggi Swasta</td>
@@ -104,16 +104,16 @@ table td img {
 
             <tr>
                 <td rowspan="<?=5+count($categories)?>"><?= count($records)+2 ?></td>
-                <td colspan="4"><b>PENILAIAN</b></td>
+                <td colspan="4" class="text-center"><b>PENILAIAN</b></td>
             </tr>
             <tr>
                 <td rowspan="2"><b>UNSUR YANG DINILAI</b></td>
-                <td colspan="2"><b>NILAI</b></td>
-                <td rowspan="2"><b>KETERANGAN</b></td>
+                <td colspan="2" class="text-center"><b>NILAI</b></td>
+                <td rowspan="2" class="text-center"><b>KETERANGAN</b></td>
             </tr>
             <tr>
-                <td><b>ANGKA</b></td>
-                <td><b>SEBUTAN</b></td>
+                <td class="text-center"><b>ANGKA</b></td>
+                <td class="text-center"><b>SEBUTAN</b></td>
             </tr>
             <?php 
             $jumlah = 0;
@@ -121,22 +121,22 @@ table td img {
                 $jumlah+=$finalReport[$category->id];
             ?>
             <tr>
-                <td><?=$category->name?></td>
+                <td><?=ucwords(strtolower($category->name))?></td>
                 <td><?=$finalReport[$category->id]?></td>
-                <td><?=terbilang($finalReport[$category->id])?></td>
+                <td><?=ucwords(terbilang($finalReport[$category->id]))?></td>
                 <td></td>
             </tr>
             <?php endforeach ?>
             <tr>
                 <td>JUMLAH</td>
                 <td><?=$jumlah?></td>
-                <td><?=terbilang($jumlah)?></td>
+                <td><?=ucwords(terbilang($jumlah))?></td>
                 <td></td>
             </tr>
             <tr>
                 <td>RATA-RATA</td>
                 <td><?=$jumlah/count($categories)?></td>
-                <td><?=terbilang($jumlah/count($categories))?></td>
+                <td><?=ucwords(terbilang($jumlah/count($categories)))?></td>
                 <td></td>
             </tr>
         </table>
