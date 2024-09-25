@@ -7,12 +7,13 @@ $db = new Database();
 
 $for_user = "";
 
+$user_id = auth()->id;
+
 if(get_role(auth()->id)->id != 1)
 {
     $for_user = "WHERE assessment_records.user_id = $user_id";
 }
 
-$user_id = auth()->id;
 
 $db->query = "SELECT 
     assessment_records.period_id, 
