@@ -42,8 +42,6 @@ if (isset($_FILES['file'])) {
                     'description'       => $description,
                     'category_id'       => $category->id,
                 ]);
-    
-                $db->exec();
             }
         }
            
