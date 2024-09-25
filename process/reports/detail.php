@@ -52,7 +52,8 @@ foreach($categories as $category)
 
 foreach($finalReport as $category => $value)
 {
-    $finalReport[$category] = ceil($value/count($records));
+    $questions = $db->exists('assessment_questions', ['instrument_id' => $instrument_id, 'category_id' => $category]);
+    $finalReport[$category] = ceil(($value/$questions)/count($records));
 }
 
 Page::setTitle("Assesment Report Detail");
