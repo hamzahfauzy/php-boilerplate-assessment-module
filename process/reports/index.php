@@ -26,6 +26,16 @@ GROUP BY assessment_records.period_id,
 $records = $db->exec('all');
 
 Page::setTitle("Assesment Report");
+Page::setModuleName("Report");
+Page::setBreadcrumbs([
+    [
+        'url' => routeTo('/'),
+        'title' => __('crud.label.home')
+    ],
+    [
+        'title' => 'Assessment Report'
+    ]
+]);
 
 return view('assessment/views/reports/index', [
     'records' => $records
