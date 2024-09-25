@@ -50,6 +50,11 @@ foreach($categories as $category)
     }
 }
 
+foreach($finalReport as $category => $value)
+{
+    $finalReport[$category] = ceil($value/count($records));
+}
+
 Page::setTitle("Assesment Report Detail");
 Page::setModuleName("Report");
 Page::setBreadcrumbs([
