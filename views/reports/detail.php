@@ -11,7 +11,7 @@ table td img {
     <div class="card-body">
         <table class="table mb-4">
             <tr>
-                <td rowspan="10">1</td>
+                <td rowspan="11">1</td>
                 <td colspan="4"><b>YANG DINILAI</b></td>
             </tr>
             <tr>
@@ -57,7 +57,7 @@ table td img {
 
             <?php foreach($records as $index => $record): ?>
             <tr>
-                <td rowspan="10"><?=$index+2?></td>
+                <td rowspan="11"><?=$index+2?></td>
                 <td colspan="4"><b><?=ucwords($record->record_type)?> PENILAI</b></td>
             </tr>
             <tr>
@@ -103,7 +103,7 @@ table td img {
             <?php endforeach ?>
 
             <tr>
-                <td><?= count($records)+2 ?></td>
+                <td rowspan="<?=5+count($categories)?>"><?= count($records)+2 ?></td>
                 <td colspan="4"><b>PENILAIAN</b></td>
             </tr>
             <tr>
