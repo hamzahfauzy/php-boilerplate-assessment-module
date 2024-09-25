@@ -7,7 +7,7 @@ $db = new Database();
 
 $for_user = "";
 
-if(get_role(auth()->id)->id == env('USER_ROLE_ID'))
+if(get_role(auth()->id)->id != 1)
 {
     $for_user = "WHERE assessment_records.user_id = $user_id";
 }
