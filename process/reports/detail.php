@@ -4,7 +4,7 @@ use Core\Database;
 use Core\Page;
 
 $db = new Database();
-$user_id = auth()->id;
+$user_id = (get_role(auth()->id)->id == env('USER_ROLE_ID')) ? auth()->id : $_GET['user_id'];
 
 $period_id = $_GET['period_id'];
 $instrument_id = $_GET['instrument_id'];

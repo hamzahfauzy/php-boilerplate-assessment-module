@@ -27,7 +27,7 @@ table td img {
                         <td><?=$record->period_name?></td>
                         <td><?=$record->instrument_name?></td>
                         <td>
-                            <a href="<?= routeTo('assessment/reports/detail', ['period_id' => $record->period_id, 'instrument_id' => $record->instrument_id]) ?>" class="btn btn-primary">Hasil</a>
+                            <a href="<?= routeTo('assessment/reports/detail', ['period_id' => $record->period_id, 'instrument_id' => $record->instrument_id, 'user_id' => $record->user_id]) ?>" class="btn btn-primary">Hasil</a>
                         </td>
                     </tr>
                     <?php endforeach ?>

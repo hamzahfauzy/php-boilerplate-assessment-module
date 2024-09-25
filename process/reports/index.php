@@ -4,6 +4,14 @@ use Core\Database;
 use Core\Page;
 
 $db = new Database();
+
+$for_user = "";
+
+if(get_role(auth()->id)->id == env('USER_ROLE_ID'))
+{
+    $for_user = "WHERE assessment_records.user_id = $user_id";
+}
+
 $user_id = auth()->id;
 
 $db->query = "SELECT 
@@ -16,7 +24,7 @@ FROM
     assessment_records 
 JOIN assessment_instruments ON assessment_instruments.id = assessment_records.instrument_id 
 JOIN assessment_periods ON assessment_periods.id = assessment_records.period_id 
-WHERE assessment_records.user_id = $user_id
+$for_user
 GROUP BY assessment_records.period_id, 
     assessment_records.user_id, 
     assessment_records.instrument_id, 

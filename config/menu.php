@@ -50,14 +50,14 @@ $menu = [
     ],
 ];
 
-if(get_role(auth()->id)->id == 1)
-{
-    $menu[4] = [
-        'label' => 'assessment.menu.assessments',
-        'icon'  => 'fa-fw fa-xl me-2 fa-solid fa-compact-disc',
-        'route' => routeTo('crud/index',['table'=>'assessment_records']),
-        'activeState' => ['assessment.assessment_records'],
-    ];
-}
+// if(get_role(auth()->id)->id == 1)
+// {
+//     $menu[4] = [
+//         'label' => 'assessment.menu.assessments',
+//         'icon'  => 'fa-fw fa-xl me-2 fa-solid fa-compact-disc',
+//         'route' => routeTo('crud/index',['table'=>'assessment_records']),
+//         'activeState' => ['assessment.assessment_records'],
+//     ];
+// }
 
 return $menu;
