@@ -12,10 +12,10 @@ if (isset($_FILES['file'])) {
     $file = $_FILES['file'];
     
     // Jenis file yang diizinkan
-    $allowedTypes = ['application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'text/csv'];
+    $allowedTypes = ['application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'];
     
     if (!in_array($file['type'], $allowedTypes)) {
-        set_flash_msg(['error'=> 'Silakan unggah file Excel atau CSV.']);
+        set_flash_msg(['error'=> 'Silakan unggah file Excel']);
     }
     else
     {
