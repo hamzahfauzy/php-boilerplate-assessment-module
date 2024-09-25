@@ -4,11 +4,15 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Form Uplaod</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Form Upload</h5>
       </div>
       <div class="modal-body">
         <form action="<?=routeTo('assessment/instruments/import', ['instrument_id' => $_GET['filter']['instrument_id']])?>" method="post" enctype="multipart/form-data">
             <?= csrf_field() ?>
+            <div class="form-group mb-3">
+                <label for="" class="mb-2">Sample File</label>
+                <a href="<?=asset('assets/assessment/import-question.xlxs')?>">Download</a>
+            </div>
             <div class="form-group mb-3">
                 <label for="" class="mb-2">File</label>
                 <input type="file" class="form-control" name="file">
