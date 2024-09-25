@@ -9,50 +9,50 @@ table td img {
         <p class="h4 m-0"><?php get_title() ?></p>
     </div>
     <div class="card-body">
-        <table class="table mb-4">
+        <table class="table table-bordered mb-4">
             <tr>
                 <td rowspan="11">1</td>
                 <td colspan="4"><b>YANG DINILAI</b></td>
             </tr>
             <tr>
                 <td>a. Nama</td>
-                <td><?=$user->name?></td>
+                <td colspan="3"><?=$user->name?></td>
             </tr>
             <tr>
                 <td>b. NIDN</td>
-                <td></td>
+                <td colspan="3"></td>
             </tr>
             <tr>
                 <td>c. Pangkat, Golongan ruang</td>
-                <td></td>
+                <td colspan="3"></td>
             </tr>
             <tr>
                 <td>d. Jabatan</td>
-                <td></td>
+                <td colspan="3"></td>
             </tr>
             <tr>
                 <td>- Struktural</td>
-                <td></td>
+                <td colspan="3"></td>
             </tr>
             <tr>
                 <td>- Akademik</td>
-                <td></td>
+                <td colspan="3"></td>
             </tr>
             <tr>
                 <td>e. Unit Kerja</td>
-                <td></td>
+                <td colspan="3"></td>
             </tr>
             <tr>
                 <td>- Perguruan Tinggi Swasta</td>
-                <td></td>
+                <td colspan="3"></td>
             </tr>
             <tr>
                 <td>- Fakultas</td>
-                <td></td>
+                <td colspan="3"></td>
             </tr>
             <tr>
                 <td>- Program Studi</td>
-                <td></td>
+                <td colspan="3"></td>
             </tr>
 
             <?php foreach($records as $index => $record): ?>
@@ -62,43 +62,43 @@ table td img {
             </tr>
             <tr>
                 <td>a. Nama</td>
-                <td><?= $record->assessor->name ?></td>
+                <td colspan="3"><?= $record->assessor->name ?></td>
             </tr>
             <tr>
                 <td>b. NIDN</td>
-                <td></td>
+                <td colspan="3"></td>
             </tr>
             <tr>
                 <td>c. Pangkat, Golongan ruang</td>
-                <td></td>
+                <td colspan="3"></td>
             </tr>
             <tr>
                 <td>d. Jabatan</td>
-                <td></td>
+                <td colspan="3"></td>
             </tr>
             <tr>
                 <td>- Struktural</td>
-                <td></td>
+                <td colspan="3"></td>
             </tr>
             <tr>
                 <td>- Akademik</td>
-                <td></td>
+                <td colspan="3"></td>
             </tr>
             <tr>
                 <td>e. Unit Kerja</td>
-                <td><?= $record->assessor->organization->name?></td>
+                <td colspan="3"><?= $record->assessor->organization->name?></td>
             </tr>
             <tr>
                 <td>- Perguruan Tinggi Swasta</td>
-                <td></td>
+                <td colspan="3"></td>
             </tr>
             <tr>
                 <td>- Fakultas</td>
-                <td></td>
+                <td colspan="3"></td>
             </tr>
             <tr>
                 <td>- Program Studi</td>
-                <td></td>
+                <td colspan="3"></td>
             </tr>
             <?php endforeach ?>
 
