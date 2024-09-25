@@ -11,7 +11,7 @@
             <?= csrf_field() ?>
             <div class="form-group mb-3">
                 <label for="" class="mb-2">Sample File</label><br>
-                <a href="<?=asset('assets/assessment/import-question.xlxs')?>">Download</a>
+                <a href="<?=asset('assets/assessment/import-question.xlsx')?>">Download</a>
             </div>
             <div class="form-group mb-3">
                 <label for="" class="mb-2">File</label>
