@@ -6,7 +6,7 @@ table td img {
 </style>
 <div class="card">
     <div class="card-header d-flex flex-grow-1 align-items-center">
-        <p class="h4 m-0">Laporan Asesmen</p>
+        <p class="h4 m-0"><?php get_title() ?></p>
     </div>
     <div class="card-body">
         <div class="table-responsive table-hover table-sales">

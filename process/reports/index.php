@@ -1,6 +1,7 @@
 <?php
 
 use Core\Database;
+use Core\Page;
 
 $db = new Database();
 $user_id = auth()->id;
@@ -23,6 +24,8 @@ GROUP BY assessment_records.period_id,
     period_name";
 
 $records = $db->exec('all');
+
+Page::setTitle("Assesment Report");
 
 return view('assessment/views/reports/index', [
     'records' => $records
