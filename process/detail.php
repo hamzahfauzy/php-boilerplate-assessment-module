@@ -29,6 +29,10 @@ foreach($categories as $category)
     $category->questions = $db->all('assessment_questions', ['instrument_id' => $data->instrument_id, 'category_id' => $category->id]);
 }
 
+$db->query = "SELECT assessment_comments.*, commenter.name as commenter_name FROM assessment_comments JOIN users commenter ON commenter.id = assessment_comments.commenter_id WHERE assessment_comments.period_id = $data->period_id AND assessment_comments.instrument_id=$data->instrument_id AND assessment_comments.user_id=$data->user_id";
+
+$comments = $db->exec('all');
+
 $success_msg = get_flash_msg('success');
 
 // page section
@@ -46,4 +50,4 @@ Page::setBreadcrumbs([
     ]
 ]);
 
-return view('assessment/views/detail', compact('success_msg','data','weights','categories'));
+return view('assessment/views/detail', compact('success_msg','data','weights','categories','comments'));

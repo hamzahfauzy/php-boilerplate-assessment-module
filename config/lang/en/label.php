@@ -27,4 +27,7 @@ return [
     'period' => 'Period',
     'employee' => 'Employee',
     'record_type' => 'Record Type',
+
+    'title' => 'Title',
+    'created_at' => 'Created At'
 ];

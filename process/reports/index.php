@@ -11,7 +11,7 @@ $user_id = auth()->id;
 
 if(get_role(auth()->id)->id != 1)
 {
-    $for_user = "WHERE assessment_records.user_id = $user_id";
+    $for_user = "WHERE assessment_records.user_id = $user_id AND assessment_records.status <> 'DRAFT'";
 }
 
 

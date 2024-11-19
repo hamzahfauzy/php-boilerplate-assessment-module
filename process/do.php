@@ -39,7 +39,7 @@ if(Request::isMethod('POST'))
     ];
     
     $db->update('assessment_records', [
-        'questions' => json_encode($questions)
+        'questions' => json_encode($questions),
     ], [
         'id' => $data->id
     ]);

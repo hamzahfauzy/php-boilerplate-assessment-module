@@ -17,7 +17,10 @@ table td img {
                 Tetapkan Sebagai Penilaian Final
             </a>
             <?php endif ?>
-
+            <?php elseif($data->assessor_id == auth()->id && $data->status == 'DRAFT'): ?>
+            <a href="<?=routeTo('assessment/to-review', ['id' => $data->id])?>" class="btn btn-sm btn-success" onclick="if(confirm('Apakah anda yakin akan mengirim penilaian ini ke pegawai ?')){return true}else{return false}">
+                Kirim Penilaian ke Pegawai
+            </a>
             <?php endif ?>
         </div>
     </div>
@@ -93,4 +96,37 @@ table td img {
             </ul>
     </div>
 </div>
+
+
+<div class="card">
+    <div class="card-header">
+        <p class="h4">Tanggapan</p>
+    </div>
+    <div class="card-body">
+        <?php foreach($comments as $comment): ?>
+        <div class="comment mb-3 bg-light p-3 rounded">
+            <b><?=$comment->commenter_name?></b> - <small><?=$comment->created_at?></small><br>
+            <p><?=$comment->description?></p>
+        </div>
+        <?php endforeach ?>
+    </div>
+</div>
+
+<?php if($data->assessor_id == auth()->id && $data->status == 'DISKUSI'): ?>
+<div class="card">
+    <div class="card-header">
+        <p class="h4">Berikan Tanggapan</p>
+    </div>
+    <div class="card-body">
+        <form action="<?=routeTo('assessment/comments/create')?>" method="POST">
+            <?= csrf_field() ?>
+            <input type="hidden" name="period_id" value="<?=$data->period_id?>">
+            <input type="hidden" name="instrument_id" value="<?=$data->instrument_id?>">
+            <input type="hidden" name="user_id" value="<?=$data->user_id?>">
+            <textarea name="description" id="" class="form-control" placeholder="Ketik tanggapan disini..." rows="8"></textarea>
+            <button class="btn btn-primary mt-2">Submit</button>
+        </form>
+    </div>
+</div>
+<?php endif ?>
 <?php get_footer() ?>

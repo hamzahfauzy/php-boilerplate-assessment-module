@@ -3,10 +3,20 @@
 table td img {
     max-width:150px;
 }
+@media print
+{    
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}
 </style>
 <div class="card">
-    <div class="card-header d-flex flex-grow-1 align-items-center">
+    <div class="card-header d-flex flex-grow-1 align-items-center no-print">
         <p class="h4 m-0"><?php get_title() ?></p>
+        <div class="right-button ms-auto">
+            <button class="btn btn-info" onclick="window.print()"><i class="fas fa-print"></i> Cetak</button>
+        </div>
     </div>
     <div class="card-body">
         <table class="table table-bordered mb-4">
@@ -20,11 +30,11 @@ table td img {
             </tr>
             <tr>
                 <td>b. NIDN</td>
-                <td colspan="3"></td>
+                <td colspan="3"><?=$user->profile?->NIDN?></td>
             </tr>
             <tr>
                 <td>c. Pangkat, Golongan ruang</td>
-                <td colspan="3"></td>
+                <td colspan="3"><?=$user->profile?->pangkat?>, <?=$user->profile?->golongan?></td>
             </tr>
             <tr>
                 <td>d. Jabatan</td>
@@ -32,27 +42,27 @@ table td img {
             </tr>
             <tr>
                 <td>- Struktural</td>
-                <td colspan="3"></td>
+                <td colspan="3"><?=$user->profile?->jab_struktural?></td>
             </tr>
             <tr>
                 <td>- Akademik</td>
-                <td colspan="3"></td>
+                <td colspan="3"><?=$user->profile?->jab_akademik?></td>
             </tr>
             <tr>
                 <td>e. Unit Kerja</td>
-                <td colspan="3"><?= $user->organization->name?></td>
+                <td colspan="7"></td>
             </tr>
             <tr>
-                <td>- Perguruan Tinggi Swasta</td>
-                <td colspan="3"></td>
+                <td>- Perguruan Tinggi</td>
+                <td colspan="3"><?=$user->profile?->perguruan_tinggi?></td>
             </tr>
             <tr>
                 <td>- Fakultas</td>
-                <td colspan="3"></td>
+                <td colspan="3"><?=$user->profile?->fakultas?></td>
             </tr>
             <tr>
                 <td>- Program Studi</td>
-                <td colspan="3"></td>
+                <td colspan="3"><?=$user->profile?->program_studi?></td>
             </tr>
 
             <?php foreach($records as $index => $record): ?>
@@ -66,11 +76,11 @@ table td img {
             </tr>
             <tr>
                 <td>b. NIDN</td>
-                <td colspan="3"></td>
+                <td colspan="3"><?=$record->assessor->profile?->NIDN?></td>
             </tr>
             <tr>
                 <td>c. Pangkat, Golongan ruang</td>
-                <td colspan="3"></td>
+                <td colspan="3"><?=$record->assessor->profile?->pangkat?>, <?=$record->assessor->profile?->golongan?></td>
             </tr>
             <tr>
                 <td>d. Jabatan</td>
@@ -78,27 +88,27 @@ table td img {
             </tr>
             <tr>
                 <td>- Struktural</td>
-                <td colspan="3"></td>
+                <td colspan="3"><?=$record->assessor->profile?->jab_struktural?></td>
             </tr>
             <tr>
                 <td>- Akademik</td>
-                <td colspan="3"></td>
+                <td colspan="3"><?=$record->assessor->profile?->jab_akademik?></td>
             </tr>
             <tr>
                 <td>e. Unit Kerja</td>
-                <td colspan="3"><?= $record->assessor->organization->name?></td>
+                <td colspan="7"></td>
             </tr>
             <tr>
-                <td>- Perguruan Tinggi Swasta</td>
-                <td colspan="3"></td>
+                <td>- Perguruan Tinggi</td>
+                <td colspan="3"><?=$record->assessor->profile?->perguruan_tinggi?></td>
             </tr>
             <tr>
                 <td>- Fakultas</td>
-                <td colspan="3"></td>
+                <td colspan="3"><?=$record->assessor->profile?->fakultas?></td>
             </tr>
             <tr>
                 <td>- Program Studi</td>
-                <td colspan="3"></td>
+                <td colspan="3"><?=$record->assessor->profile?->program_studi?></td>
             </tr>
             <?php endforeach ?>
 
@@ -124,7 +134,7 @@ table td img {
                 <td><?=ucwords(strtolower($category->name))?></td>
                 <td><?=$finalReport[$category->id]?></td>
                 <td><?=ucwords(terbilang($finalReport[$category->id]))?></td>
-                <td></td>
+                <td><?=$weights[$category->id]?></td>
             </tr>
             <?php endforeach ?>
             <tr>
@@ -137,9 +147,41 @@ table td img {
                 <td>RATA-RATA</td>
                 <td><?=$jumlah/count($categories)?></td>
                 <td><?=ucwords(terbilang($jumlah/count($categories)))?></td>
-                <td></td>
+                <td><?= $avg_weight ?></td>
             </tr>
         </table>
     </div>
 </div>
+
+<div class="card">
+    <div class="card-header">
+        <p class="h4">Tanggapan</p>
+    </div>
+    <div class="card-body">
+        <?php foreach($comments as $comment): ?>
+        <div class="comment mb-3 bg-light p-3 rounded">
+            <b><?=$comment->commenter_name?></b> - <small><?=$comment->created_at?></small><br>
+            <p><?=$comment->description?></p>
+        </div>
+        <?php endforeach ?>
+    </div>
+</div>
+
+<?php if(!$isFinal): ?>
+<div class="card">
+    <div class="card-header">
+        <p class="h4">Berikan Tanggapan</p>
+    </div>
+    <div class="card-body">
+        <form action="<?=routeTo('assessment/comments/create')?>" method="POST">
+            <?= csrf_field() ?>
+            <input type="hidden" name="period_id" value="<?=$_GET['period_id']?>">
+            <input type="hidden" name="instrument_id" value="<?=$_GET['instrument_id']?>">
+            <input type="hidden" name="user_id" value="<?=$_GET['user_id']?>">
+            <textarea name="description" id="" class="form-control" placeholder="Ketik tanggapan disini..." rows="8"></textarea>
+            <button class="btn btn-primary mt-2">Submit</button>
+        </form>
+    </div>
+</div>
+<?php endif ?>
 <?php get_footer() ?>

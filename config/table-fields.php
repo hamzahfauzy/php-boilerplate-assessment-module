@@ -64,6 +64,14 @@ return [
             'label' => __('assessment.label.evaluator'),
             'type' => 'options-obj:users,id,name'
         ],
+        'title' => [
+            'label' => __('assessment.label.title'),
+            'type' => 'text'
+        ],
+        'description' => [
+            'label' => __('assessment.label.description'),
+            'type' => 'textarea'
+        ],
         'file' => [
             'label' => __('assessment.label.file'),
             'type' => 'file'

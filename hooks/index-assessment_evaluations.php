@@ -27,7 +27,7 @@ if($filter || count($filter_query))
 }
 
 $where = $where ." ". $having;
-$baseQuery = "SELECT $this->table.*, media.name `file` FROM $this->table JOIN media ON media.id = $this->table.media_id $where ORDER BY ".$col_order." ".$order[0]['dir'];
+$baseQuery = "SELECT $this->table.*, media.name `file` FROM $this->table LEFT JOIN media ON media.id = $this->table.media_id $where ORDER BY ".$col_order." ".$order[0]['dir'];
 $db->query = $baseQuery." LIMIT $start,$length";
 
 $data  = $this->db->exec('all');

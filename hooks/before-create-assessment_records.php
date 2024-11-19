@@ -1,3 +1,3 @@
 <?php
 
-$data['status'] = 'DISKUSI';
+$data['status'] = 'DRAFT';

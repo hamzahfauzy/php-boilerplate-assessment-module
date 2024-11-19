@@ -1,0 +1,5 @@
+ALTER TABLE assessment_evaluations ADD COLUMN title VARCHAR(255) DEFAULT NULL;
+ALTER TABLE assessment_evaluations ADD COLUMN description LONGTEXT DEFAULT NULL;
+ALTER TABLE assessment_evaluations ADD COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+ALTER TABLE assessment_evaluations MODIFY COLUMN media_id INT DEFAULT NULL;
+ALTER TABLE assessment_records ADD COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;

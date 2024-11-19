@@ -31,5 +31,8 @@ return [
     'assessment' => 'Penilaian',
     'do_evaluation' => 'Lakukan Evaluasi',
     'evaluations' => 'Evaluasi',
-    'detail' => 'Detail'
+    'detail' => 'Detail',
+
+    'title' => 'Judul',
+    'created_at' => 'Tanggal Dibuat'
 ];

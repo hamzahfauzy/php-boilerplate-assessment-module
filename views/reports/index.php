@@ -31,6 +31,12 @@ table td img {
                         </td>
                     </tr>
                     <?php endforeach ?>
+
+                    <?php if(empty($records)): ?>
+                    <tr>
+                        <td colspan="4" class="text-center"><i>Tidak ada Data</i></td>
+                    </tr>
+                    <?php endif ?>
                 </tbody>
             </table>
         </div>
