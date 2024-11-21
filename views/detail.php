@@ -8,7 +8,7 @@ table td img {
     <div class="card-header d-flex flex-grow-1 align-items-center">
         <p class="h4 m-0"><?php get_title() ?></p>
         <div class="right-button ms-auto">
-            <?php if($data->assessor_id == auth()->id && $data->status == 'DISKUSI'): ?>
+            <?php if($data->assessor_id == auth()->id && in_array($data->status, ['DISKUSI','DRAFT']) && empty($data->questions)): ?>
             <a href="<?=routeTo('assessment/do', ['id' => $data->id])?>" class="btn btn-sm btn-info">
                 <?= $data->questions ? 'Revisi Penilaian' : 'Buat Penilaian' ?>
             </a>
@@ -17,7 +17,7 @@ table td img {
                 Tetapkan Sebagai Penilaian Final
             </a>
             <?php endif ?>
-            <?php elseif($data->assessor_id == auth()->id && $data->status == 'DRAFT'): ?>
+            <?php elseif($data->assessor_id == auth()->id && $data->status == 'DRAFT' && !empty($data->questions)): ?>
             <a href="<?=routeTo('assessment/to-review', ['id' => $data->id])?>" class="btn btn-sm btn-success" onclick="if(confirm('Apakah anda yakin akan mengirim penilaian ini ke pegawai ?')){return true}else{return false}">
                 Kirim Penilaian ke Pegawai
             </a>
