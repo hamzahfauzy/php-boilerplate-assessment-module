@@ -56,13 +56,19 @@ return [
         ],
     ],
     'assessment_evaluations' => [
-        'user_id' => [
+        'employee' => [
             'label' => __('assessment.label.employee'),
-            'type' => 'options-obj:users,id,name'
+            'type' => 'text',
+            'search' => 'emp.name'
         ],
-        'evaluator_id' => [
+        'evaluator' => [
             'label' => __('assessment.label.evaluator'),
-            'type' => 'options-obj:users,id,name'
+            'type' => 'text',
+            'search' => 'evl.name'
+        ],
+        'work_date' => [
+            'label' => __('assessment.label.work_date'),
+            'type' => 'date'
         ],
         'title' => [
             'label' => __('assessment.label.title'),
@@ -74,7 +80,8 @@ return [
         ],
         'file' => [
             'label' => __('assessment.label.file'),
-            'type' => 'file'
+            'type' => 'file',
+            'search' => false
         ],
         'notes' => [
             'label' => __('assessment.label.notes'),

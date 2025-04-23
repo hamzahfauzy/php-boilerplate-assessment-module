@@ -34,5 +34,6 @@ return [
     'detail' => 'Detail',
 
     'title' => 'Judul',
-    'created_at' => 'Tanggal Dibuat'
+    'created_at' => 'Tanggal Dibuat',
+    'work_date' => 'Tanggal Kerja'
 ];

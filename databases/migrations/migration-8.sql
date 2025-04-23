@@ -1,0 +1,1 @@
+ALTER TABLE assessment_evaluations ADD COLUMN work_date date DEFAULT NULL;

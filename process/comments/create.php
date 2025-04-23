@@ -17,7 +17,7 @@ set_flash_msg(['success'=> 'Tanggapan berhasil disimpan']);
 
 if($_POST['user_id'] == auth()->id)
 {
-    header('Location: '.routeTo('assessment/reports/detail',[
+    header('location: '.routeTo('assessment/reports/detail',[
         'user_id' => $_POST['user_id'],
         'period_id' => $_POST['period_id'],
         'instrument_id' => $_POST['instrument_id'],
@@ -32,6 +32,6 @@ else
         'assessor_id' => auth()->id
     ]);
 
-    header('Location: '.routeTo('assessment/detail',['id' => $detail->id]));
+    header('location: '.routeTo('assessment/detail',['id' => $detail->id]));
 }
 die();

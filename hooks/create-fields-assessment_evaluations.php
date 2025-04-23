@@ -1,7 +1,7 @@
 <?php
 
-unset($fields['user_id']);
-unset($fields['evaluator_id']);
+unset($fields['employee']);
+unset($fields['evaluator']);
 unset($fields['notes']);
 
 return $fields;

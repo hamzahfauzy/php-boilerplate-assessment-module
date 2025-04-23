@@ -12,7 +12,7 @@ $instrument_id = $_GET['instrument_id'];
 
 $user = $db->single('users', ['id' => $user_id]);
 $organization_user = $db->single('organization_users', ['user_id' => $user_id]);
-$user->organization = $db->single('organizations', ['id' => $organization_user->organization_id]);
+$user->organization = $db->single('organizations', ['id' => $organization_user?->organization_id]);
 $user->profile = $db->single('assessment_profiles',[
     'user_id' => $user_id
 ]);
@@ -39,7 +39,7 @@ foreach($records as $data)
 
     $data->assessor = $db->single('users', ['id' => $data->assessor_id]);
     $organization_user = $db->single('organization_users', ['user_id' => $data->assessor_id]);
-    $data->assessor->organization = $db->single('organizations', ['id' => $organization_user->organization_id]);
+    $data->assessor->organization = $db->single('organizations', ['id' => $organization_user?->organization_id]);
     $data->assessor->profile = $db->single('assessment_profiles',[
         'user_id' => $data->assessor_id
     ]);

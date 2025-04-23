@@ -9,7 +9,7 @@ $assessment_record_id = $_GET['id'];
 $data = $db->single('assessment_records', ['id' => $assessment_record_id]);
 $data->user = $db->single('users', ['id' => $data->user_id]);
 $organization_user = $db->single('organization_users', ['user_id' => $data->user_id]);
-$data->user->organization = $db->single('organizations', ['id' => $organization_user->organization_id]);
+$data->user->organization = $db->single('organizations', ['id' => $organization_user?->organization_id]);
 $data->instrument = $db->single('assessment_instruments', ['id' => $data->instrument_id]);
 // $data->instrument->question_lists = $db->all('assessment_questions', ['instrument_id' => $data->instrument_id]);
 $weights = $db->all('assessment_weights');
